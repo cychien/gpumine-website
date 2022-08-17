@@ -1,7 +1,9 @@
-import { useTranslation } from "react-i18next";
+import type { LoaderFunction } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
+import { detectLanguageOnServer } from "~/utils/i18n";
 
-export default function Index() {
-  const { t } = useTranslation();
+export const loader: LoaderFunction = ({ request }) => {
+  let lng = detectLanguageOnServer(request);
 
-  return <div>{t("common.home")}</div>;
-}
+  return redirect(`/${lng}`);
+};
