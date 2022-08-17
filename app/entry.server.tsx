@@ -5,7 +5,7 @@ import { RemixServer } from "@remix-run/react";
 import { renderToPipeableStream } from "react-dom/server";
 import { I18nextProvider } from "react-i18next";
 
-import { initI18nOnServer } from "./utils/i18n/initI18nOnServer";
+import { initI18nOnServer } from "./utils/i18n";
 
 const ABORT_DELAY = 5000;
 

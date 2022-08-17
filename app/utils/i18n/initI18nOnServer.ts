@@ -30,7 +30,7 @@ export async function initI18nOnServer(request: Request) {
   return i18nInstance;
 }
 
-function detectLanguageOnServer(request: Request) {
+export function detectLanguageOnServer(request: Request) {
   // Priorities: search params(lng) -> path params(/{{lng}}/) -> cookies(i18next) -> header(accept-language)
   const url = new URL(request.url);
 
