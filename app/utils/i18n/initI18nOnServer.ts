@@ -1,13 +1,17 @@
 import i18n from "i18next";
-import fsBackend from "i18next-fs-backend";
 import { initReactI18next } from "react-i18next";
+import httpBackend from "i18next-http-backend";
+import fsBackend from "i18next-fs-backend";
 
 import { getLanguageFromSupported } from "./getLanguageFromSupported";
 import {
   COMMON_OPTIONS,
   FALLBACK_LANGUAGE,
   SUPPORTED_LANGUAGES,
+  TRANSLATION_FILE_PATHS,
 } from "./constants";
+import { TRANSLATION_URL } from "~/constants/app";
+import type { SupportedLanguage } from "./types";
 
 export async function initI18nOnServer(request: Request) {
   /**
@@ -15,17 +19,29 @@ export async function initI18nOnServer(request: Request) {
    * since we don't want to misuse the old instance.
    */
   const i18nInstance = i18n.createInstance();
+  const isDev = process.env.NODE_ENV === "development";
 
   const language = detectLanguageOnServer(request);
   const options = {
     ...COMMON_OPTIONS,
     lng: language,
     backend: {
-      loadPath: "./public/locales/{{lng}}/{{ns}}.json",
+      loadPath: (lngs: string[]) => {
+        const firstLanguage = lngs[0] as SupportedLanguage;
+        const translationFilePath = TRANSLATION_FILE_PATHS[firstLanguage];
+        return isDev
+          ? `./public/locales/${firstLanguage}/translation.json`
+          : `${TRANSLATION_URL}/${translationFilePath}/translation.json`;
+      },
     },
   };
 
-  await i18nInstance.use(fsBackend).use(initReactI18next).init(options);
+  const backend = isDev ? fsBackend : httpBackend;
+
+  await i18nInstance
+    .use<fsBackend | httpBackend>(backend)
+    .use(initReactI18next)
+    .init(options);
 
   return i18nInstance;
 }

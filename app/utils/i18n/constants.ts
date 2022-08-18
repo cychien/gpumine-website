@@ -11,3 +11,8 @@ export const COMMON_OPTIONS: InitOptions = {
   // TODO: use suspense
   react: { useSuspense: false },
 };
+
+export const TRANSLATION_FILE_PATHS = {
+  "en-US": "en-US",
+  "zh-TW": "zh-Hant-TW",
+};
