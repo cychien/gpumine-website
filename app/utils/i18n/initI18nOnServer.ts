@@ -1,7 +1,6 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import httpBackend from "i18next-http-backend";
-import fsBackend from "i18next-fs-backend";
 
 import { getLanguageFromSupported } from "./getLanguageFromSupported";
 import {
@@ -19,7 +18,6 @@ export async function initI18nOnServer(request: Request) {
    * since we don't want to misuse the old instance.
    */
   const i18nInstance = i18n.createInstance();
-  const isDev = process.env.NODE_ENV === "development";
 
   const language = detectLanguageOnServer(request);
   const options = {
@@ -29,19 +27,12 @@ export async function initI18nOnServer(request: Request) {
       loadPath: (lngs: string[]) => {
         const firstLanguage = lngs[0] as SupportedLanguage;
         const translationFilePath = TRANSLATION_FILE_PATHS[firstLanguage];
-        return isDev
-          ? `./public/locales/${firstLanguage}/translation.json`
-          : `${TRANSLATION_URL}/${translationFilePath}/translation.json`;
+        return `${TRANSLATION_URL}/${translationFilePath}/translation.json`;
       },
     },
   };
 
-  const backend = isDev ? fsBackend : httpBackend;
-
-  await i18nInstance
-    .use<fsBackend | httpBackend>(backend)
-    .use(initReactI18next)
-    .init(options);
+  await i18nInstance.use(httpBackend).use(initReactI18next).init(options);
 
   return i18nInstance;
 }
