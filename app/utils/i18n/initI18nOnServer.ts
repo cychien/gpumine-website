@@ -1,6 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import httpBackend from "i18next-http-backend";
+import parser from "accept-language-parser";
 
 import { getLanguageFromSupported } from "./getLanguageFromSupported";
 import {
@@ -20,6 +21,7 @@ export async function initI18nOnServer(request: Request) {
   const i18nInstance = i18n.createInstance();
 
   const language = detectLanguageOnServer(request);
+
   const options = {
     ...COMMON_OPTIONS,
     lng: language,
@@ -42,15 +44,18 @@ export function detectLanguageOnServer(request: Request) {
   const url = new URL(request.url);
 
   // Search params
-  const lngSerachParam = url.searchParams.get("lng");
-  if (lngSerachParam) {
-    return getLanguageFromSupported(lngSerachParam);
+  const serachParamLng = url.searchParams.get("lng");
+  if (serachParamLng) {
+    return getLanguageFromSupported(serachParamLng);
   }
 
   // Path params
-  const lngPathParam = url.pathname.split("/")[1];
-  if (SUPPORTED_LANGUAGES.includes(lngPathParam)) {
-    return getLanguageFromSupported(lngPathParam);
+  const pathParamLng = url.pathname.split("/")[1];
+  const parsedLanguage = parser.pick(SUPPORTED_LANGUAGES, pathParamLng, {
+    loose: true,
+  });
+  if (parsedLanguage) {
+    return parsedLanguage;
   }
 
   // Cookies
@@ -61,9 +66,9 @@ export function detectLanguageOnServer(request: Request) {
       .map((cookie) => cookie.trim())
       .map((cookie) => cookie.split("=")) ?? []
   );
-  const lngCookie = cookies.i18next;
-  if (lngCookie) {
-    return getLanguageFromSupported(lngCookie);
+  const cookieLng = cookies.i18next;
+  if (cookieLng) {
+    return getLanguageFromSupported(cookieLng);
   }
 
   // Header: accept-language
