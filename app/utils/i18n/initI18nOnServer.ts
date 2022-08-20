@@ -1,16 +1,17 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import httpBackend from "i18next-http-backend";
 import parser from "accept-language-parser";
+import i18n from "i18next";
+import httpBackend from "i18next-http-backend";
+import { initReactI18next } from "react-i18next";
 
-import { getLanguageFromSupported } from "./getLanguageFromSupported";
+import { TRANSLATION_URL } from "~/constants/app";
+
 import {
   COMMON_OPTIONS,
   FALLBACK_LANGUAGE,
   SUPPORTED_LANGUAGES,
   TRANSLATION_FILE_PATHS,
 } from "./constants";
-import { TRANSLATION_URL } from "~/constants/app";
+import { getLanguageFromSupported } from "./getLanguageFromSupported";
 import type { SupportedLanguage } from "./types";
 
 export async function initI18nOnServer(request: Request) {

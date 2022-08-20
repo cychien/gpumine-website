@@ -1,5 +1,5 @@
 {
-  "plugins": ["simple-import-sort"],
+  "plugins": ["simple-import-sort", "prettier"],
   "extends": [
     "@remix-run/eslint-config",
     "@remix-run/eslint-config/node",
@@ -7,6 +7,14 @@
   ],
   "rules": {
     "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error"
+    "simple-import-sort/exports": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "tabWidth": 2,
+        "semi": false,
+        "singleQuote": true
+      }
+    ]
   }
 }

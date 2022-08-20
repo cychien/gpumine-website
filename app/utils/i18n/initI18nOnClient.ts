@@ -1,7 +1,9 @@
+import parser from "accept-language-parser";
 import i18n from "i18next";
 import httpBackend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
-import parser from "accept-language-parser";
+
+import { TRANSLATION_URL } from "~/constants/app";
 
 import {
   COMMON_OPTIONS,
@@ -9,9 +11,8 @@ import {
   SUPPORTED_LANGUAGES,
   TRANSLATION_FILE_PATHS,
 } from "./constants";
-import { TRANSLATION_URL } from "~/constants/app";
-import type { SupportedLanguage } from "./types";
 import { getLanguageFromSupported } from "./getLanguageFromSupported";
+import type { SupportedLanguage } from "./types";
 
 export async function initI18nOnClient() {
   const language = detectLanguageOnClient();
