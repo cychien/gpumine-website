@@ -7,7 +7,11 @@
     "dev": "concurrently \"yarn dev:css\" \"yarn dev:remix\"",
     "dev:css": "yarn generate:css --watch",
     "dev:remix": "remix dev",
-    "generate:css": "tailwindcss -i ./styles/app.css -o ./app/styles/app.css"
+    "generate:css": "tailwindcss -i ./styles/app.css -o ./app/styles/app.css",
+    "lint": "eslint --fix",
+    "format": "prettier --write",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@remix-run/node": "^1.6.8",
@@ -32,7 +36,14 @@
     "autoprefixer": "^10.4.8",
     "concurrently": "^7.3.0",
     "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
     "postcss": "^8.4.16",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13",
     "tailwindcss": "^3.1.8",
     "typescript": "^4.7.4"
   },

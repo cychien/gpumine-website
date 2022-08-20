@@ -1,0 +1,6 @@
+{
+  "app/**/*.(ts|tsx|js|jsx)": [
+    "yarn lint",
+    "yarn format"
+  ]
+}
