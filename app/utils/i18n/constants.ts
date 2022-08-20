@@ -1,7 +1,7 @@
-import type { InitOptions } from "i18next";
+import type { InitOptions } from 'i18next'
 
-export const FALLBACK_LANGUAGE = "en-US";
-export const SUPPORTED_LANGUAGES = ["en-US", "zh-TW"];
+export const FALLBACK_LANGUAGE = 'en-US'
+export const SUPPORTED_LANGUAGES = ['en-US', 'zh-TW']
 
 export const COMMON_OPTIONS: InitOptions = {
   fallbackLng: FALLBACK_LANGUAGE,
@@ -10,9 +10,9 @@ export const COMMON_OPTIONS: InitOptions = {
   interpolation: { escapeValue: false },
   // TODO: use suspense
   react: { useSuspense: false },
-};
+}
 
 export const TRANSLATION_FILE_PATHS = {
-  "en-US": "en-US",
-  "zh-TW": "zh-Hant-TW",
-};
+  'en-US': 'en-US',
+  'zh-TW': 'zh-Hant-TW',
+}

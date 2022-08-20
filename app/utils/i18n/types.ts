@@ -1,1 +1,1 @@
-export type SupportedLanguage = "en-US" | "zh-TW";
+export type SupportedLanguage = 'en-US' | 'zh-TW'

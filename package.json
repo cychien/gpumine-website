@@ -9,7 +9,6 @@
     "dev:remix": "remix dev",
     "generate:css": "tailwindcss -i ./styles/app.css -o ./app/styles/app.css",
     "lint": "eslint --fix",
-    "format": "prettier --write",
     "lint-staged": "lint-staged",
     "prepare": "husky install"
   },

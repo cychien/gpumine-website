@@ -1,13 +1,13 @@
-import type { EntryContext } from "@remix-run/node";
-import { Response } from "@remix-run/node";
-import { RemixServer } from "@remix-run/react";
-import { renderToPipeableStream } from "react-dom/server";
-import { I18nextProvider } from "react-i18next";
-import { PassThrough } from "stream";
+import type { EntryContext } from '@remix-run/node'
+import { Response } from '@remix-run/node'
+import { RemixServer } from '@remix-run/react'
+import { renderToPipeableStream } from 'react-dom/server'
+import { I18nextProvider } from 'react-i18next'
+import { PassThrough } from 'stream'
 
-import { initI18nOnServer } from "./utils/i18n";
+import { initI18nOnServer } from './utils/i18n'
 
-const ABORT_DELAY = 5000;
+const ABORT_DELAY = 5000
 
 export default async function handleRequest(
   request: Request,
@@ -15,10 +15,10 @@ export default async function handleRequest(
   responseHeaders: Headers,
   remixContext: EntryContext
 ) {
-  const i18nInstance = await initI18nOnServer(request);
+  const i18nInstance = await initI18nOnServer(request)
 
   return new Promise((resolve, reject) => {
-    let didError = false;
+    let didError = false
 
     let { pipe, abort } = renderToPipeableStream(
       /**
@@ -32,30 +32,30 @@ export default async function handleRequest(
       </I18nextProvider>,
       {
         onShellReady: () => {
-          let body = new PassThrough();
+          let body = new PassThrough()
 
-          responseHeaders.set("Content-Type", "text/html");
+          responseHeaders.set('Content-Type', 'text/html')
 
           resolve(
             new Response(body, {
               headers: responseHeaders,
               status: didError ? 500 : responseStatusCode,
             })
-          );
+          )
 
-          pipe(body);
+          pipe(body)
         },
         onShellError: (err) => {
-          reject(err);
+          reject(err)
         },
         onError: (error) => {
-          didError = true;
+          didError = true
 
-          console.error(error);
+          console.error(error)
         },
       }
-    );
+    )
 
-    setTimeout(abort, ABORT_DELAY);
-  });
+    setTimeout(abort, ABORT_DELAY)
+  })
 }
