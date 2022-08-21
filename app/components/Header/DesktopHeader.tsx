@@ -3,7 +3,6 @@ import cx from 'classnames'
 import { useTranslation } from 'react-i18next'
 
 import commonIcons from '~/assets/icons/common.svg'
-import logo from '~/assets/images/logo.svg'
 import useToggle from '~/utils/hooks/useToggle'
 import withLang from '~/utils/i18n/withLang'
 
@@ -11,6 +10,7 @@ import SearchAddressModal from '../SearchAddressModal'
 import ShiftBy from '../ShiftBy'
 import CurrencyDropdown from './CurrencyDropdown'
 import LanguageDropdown from './LanguageDropdown'
+import Logo from './Logo'
 
 function DesktopHeader() {
   const { t, i18n } = useTranslation()
@@ -20,7 +20,7 @@ function DesktopHeader() {
     <>
       <header className="bg-surface flex items-center justify-between rounded-b-xl px-12 py-6 shadow-[0_4px_8px_0_rgba(189,206,252,0.2)]">
         <div className="flex items-center space-x-8">
-          <img src={logo} alt="GPUMINE Logo" className="h-[38px]" />
+          <Logo className="h-[38px]" />
           <ShiftBy y={6}>
             <LinkButton to={withLang('', i18n.language)}>
               {t('common.home')}
