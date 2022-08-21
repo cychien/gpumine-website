@@ -4,6 +4,7 @@ import httpBackend from 'i18next-http-backend'
 import { initReactI18next } from 'react-i18next'
 
 import { TRANSLATION_URL } from '~/constants/app'
+import type { SupportedLanguage } from '~/types/i18n'
 
 import {
   COMMON_OPTIONS,
@@ -12,7 +13,6 @@ import {
   TRANSLATION_FILE_PATHS,
 } from './constants'
 import { getLanguageFromSupported } from './getLanguageFromSupported'
-import type { SupportedLanguage } from './types'
 
 export async function initI18nOnClient() {
   const language = detectLanguageOnClient()
