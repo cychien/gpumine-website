@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import commonIcons from '~/assets/icons/common.svg'
 import logo from '~/assets/images/logo.svg'
 import useToggle from '~/utils/hooks/useToggle'
+import withLang from '~/utils/i18n/withLang'
 
 import SearchAddressModal from '../SearchAddressModal'
 import ShiftBy from '../ShiftBy'
@@ -12,7 +13,7 @@ import CurrencyDropdown from './CurrencyDropdown'
 import LanguageDropdown from './LanguageDropdown'
 
 function DesktopHeader() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [isSearchAddressModalOpen, toggleSearchAddressModal] = useToggle(false)
 
   return (
@@ -21,7 +22,9 @@ function DesktopHeader() {
         <div className="flex items-center space-x-8">
           <img src={logo} alt="GPUMINE Logo" className="h-[38px]" />
           <ShiftBy y={6}>
-            <LinkButton to="">{t('common.home')}</LinkButton>
+            <LinkButton to={withLang('', i18n.language)}>
+              {t('common.home')}
+            </LinkButton>
           </ShiftBy>
           <ShiftBy y={6}>
             <LinkButton
@@ -78,6 +81,7 @@ function LinkButton({ to, children, isExternalLink }: LinkButtonProps) {
   return (
     <NavLink
       to={to}
+      prefetch="intent"
       className={({ isActive }) =>
         cx(LinkButtonStyle, {
           'border-b-[2px] border-primary-600': isActive,
