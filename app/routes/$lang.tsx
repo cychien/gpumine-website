@@ -6,6 +6,7 @@ import parser from 'accept-language-parser'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import Footer from '~/components/Footer'
 import Header from '~/components/Header'
 import { detectLanguageOnServer } from '~/utils/i18n'
 import { SUPPORTED_LANGUAGES } from '~/utils/i18n/constants'
@@ -62,6 +63,7 @@ export default function Layout() {
     <div>
       <Header />
       <Outlet />
+      <Footer />
     </div>
   )
 }
