@@ -3,12 +3,14 @@ import { redirect } from '@remix-run/node'
 import { Outlet } from '@remix-run/react'
 import parser from 'accept-language-parser'
 
+import Header from '~/components/Header'
+import { detectLanguageOnServer } from '~/utils/i18n'
 import { SUPPORTED_LANGUAGES } from '~/utils/i18n/constants'
 
 export const loader: LoaderFunction = ({ request, params }) => {
-  const lang = params.lang
+  const langParam = params.lang
 
-  if (!lang) {
+  if (!langParam) {
     throw new Response('Not Found', {
       status: 404,
     })
@@ -19,23 +21,35 @@ export const loader: LoaderFunction = ({ request, params }) => {
   const pathname = url.pathname
   const pathnameWithoutLang = pathname.split('/').slice(2).join('/')
 
-  const supportedLanguage = parser.pick(SUPPORTED_LANGUAGES, lang, {
-    loose: true,
-  })
+  const supportedLanguageFromLangParam = parser.pick(
+    SUPPORTED_LANGUAGES,
+    langParam,
+    {
+      loose: true,
+    }
+  )
+  const isValidPath = !!supportedLanguageFromLangParam
 
-  if (!supportedLanguage) {
+  if (!isValidPath) {
     throw new Response('Not Found', {
       status: 404,
     })
   }
 
-  if (supportedLanguage !== lang) {
-    return redirect(`/${supportedLanguage}/${pathnameWithoutLang}`)
+  const currentLanguage = detectLanguageOnServer(request)
+
+  if (supportedLanguageFromLangParam !== currentLanguage) {
+    return redirect(`/${currentLanguage}/${pathnameWithoutLang}`)
   }
 
   return null
 }
 
-export default function LangLayout() {
-  return <Outlet />
+export default function Layout() {
+  return (
+    <div>
+      <Header />
+      <Outlet />
+    </div>
+  )
 }
