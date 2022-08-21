@@ -17,7 +17,7 @@ function DesktopHeader() {
 
   return (
     <>
-      <header className="bg-surface flex items-center justify-between rounded-b-xl px-12 py-6">
+      <header className="bg-surface flex items-center justify-between rounded-b-xl px-12 py-6 shadow-[0_4px_8px_0_rgba(189,206,252,0.2)]">
         <div className="flex items-center space-x-8">
           <img src={logo} alt="GPUMINE Logo" className="h-[38px]" />
           <ShiftBy y={6}>

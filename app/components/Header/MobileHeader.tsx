@@ -3,7 +3,7 @@ import logo from '~/assets/images/logo.svg'
 
 function MobileHeader() {
   return (
-    <header className="bg-surface flex items-center justify-between rounded-b-xl p-3">
+    <header className="bg-surface flex items-center justify-between rounded-b-xl p-3 shadow-[0_4px_8px_0_rgba(189,206,252,0.2)]">
       <img src={logo} alt="GPUMINE Logo" className="h-[30px]" />
       <div className="flex space-x-3">
         <button
