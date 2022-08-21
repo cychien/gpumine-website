@@ -27,9 +27,12 @@ function LanguageDropdown() {
 
   const handleLanguageChange = useCallback(
     (language: SupportedLanguage) => {
-      navigate(`${pathname}?lng=${language}`)
+      i18n.changeLanguage(language)
+      const pathnameWithoutLanguage = pathname.split('/').slice(2).join('/')
+      const urlWithNewLanguage = `/${language}/${pathnameWithoutLanguage}`
+      navigate(urlWithNewLanguage)
     },
-    [navigate, pathname]
+    [i18n, navigate, pathname]
   )
 
   return (
