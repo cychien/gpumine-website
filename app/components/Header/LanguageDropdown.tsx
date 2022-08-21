@@ -1,3 +1,4 @@
+import { useLocation, useNavigate } from '@remix-run/react'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -9,7 +10,10 @@ import Dropdown from './Dropdown'
 
 function LanguageDropdown() {
   const { i18n } = useTranslation()
+  const navigate = useNavigate()
+  const location = useLocation()
 
+  const pathname = location.pathname
   const currentLanguage = i18n.language as SupportedLanguage
 
   const languageOptions = useMemo(
@@ -23,9 +27,9 @@ function LanguageDropdown() {
 
   const handleLanguageChange = useCallback(
     (language: SupportedLanguage) => {
-      i18n.changeLanguage(language)
+      navigate(`${pathname}?lng=${language}`)
     },
-    [i18n]
+    [navigate, pathname]
   )
 
   return (

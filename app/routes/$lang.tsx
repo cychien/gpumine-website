@@ -1,7 +1,10 @@
 import type { LoaderFunction } from '@remix-run/node'
+import { json } from '@remix-run/node'
 import { redirect } from '@remix-run/node'
-import { Outlet } from '@remix-run/react'
+import { Outlet, useLoaderData } from '@remix-run/react'
 import parser from 'accept-language-parser'
+import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import Header from '~/components/Header'
 import { detectLanguageOnServer } from '~/utils/i18n'
@@ -42,10 +45,19 @@ export const loader: LoaderFunction = ({ request, params }) => {
     return redirect(`/${currentLanguage}/${pathnameWithoutLang}`)
   }
 
-  return null
+  return json({
+    language: currentLanguage,
+  })
 }
 
 export default function Layout() {
+  const { language } = useLoaderData()
+  const { i18n } = useTranslation()
+
+  useEffect(() => {
+    i18n.changeLanguage(language)
+  }, [i18n, language])
+
   return (
     <div>
       <Header />
