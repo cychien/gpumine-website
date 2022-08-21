@@ -64,12 +64,12 @@ type LinkButtonProps = {
 }
 
 function LinkButton({ to, children, isExternalLink }: LinkButtonProps) {
+  const LinkButtonStyle =
+    'block h-[26px] w-[64px] pb-1 text-center text-sm leading-none text-primary-600'
+
   if (isExternalLink) {
     return (
-      <a
-        href={to}
-        className="block h-[26px] w-[64px] pb-1 text-center text-sm leading-none text-primary-600"
-      >
+      <a href={to} target="_blank" rel="noreferrer" className={LinkButtonStyle}>
         {children}
       </a>
     )
@@ -79,12 +79,9 @@ function LinkButton({ to, children, isExternalLink }: LinkButtonProps) {
     <NavLink
       to={to}
       className={({ isActive }) =>
-        cx(
-          'block h-[26px] w-[64px] pb-1 text-center text-sm leading-none text-primary-600',
-          {
-            'border-b-[2px] border-primary-600': isActive,
-          }
-        )
+        cx(LinkButtonStyle, {
+          'border-b-[2px] border-primary-600': isActive,
+        })
       }
     >
       {children}
