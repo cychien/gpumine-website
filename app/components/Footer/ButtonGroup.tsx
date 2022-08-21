@@ -7,7 +7,7 @@ function ButtonGroup() {
   return (
     <div className="flex space-x-3">
       <IconButton ariaLabel="Email" isLink to="mailto:john@gpumine.org">
-        <svg className="h-[20px] w-[20px] text-white">
+        <svg className="h-[20px] w-[20px]">
           <use href={`${commonIcons}#email`} />
         </svg>
       </IconButton>
@@ -16,7 +16,7 @@ function ButtonGroup() {
         isLink
         to="https://www.facebook.com/gpumine.org"
       >
-        <svg className="h-[20px] w-[20px] text-white">
+        <svg className="h-[20px] w-[20px]">
           <use href={`${commonIcons}#facebook`} />
         </svg>
       </IconButton>
@@ -25,7 +25,7 @@ function ButtonGroup() {
         isLink
         to="https://gpumine.link/gpuminegroup"
       >
-        <svg className="h-[20px] w-[20px] text-white">
+        <svg className="h-[20px] w-[20px]">
           <use href={`${commonIcons}#line`} />
         </svg>
       </IconButton>
@@ -34,7 +34,7 @@ function ButtonGroup() {
         variant="outline"
         onClick={() => {}}
       >
-        <svg className="h-[20px] w-[20px] text-primary-700">
+        <svg className="h-[20px] w-[20px]">
           <use href={`${commonIcons}#dark-mode`} />
         </svg>
       </IconButton>
@@ -62,8 +62,9 @@ function IconButton({
   const IconButtonStyle = useMemo(
     () =>
       cx('flex h-[30px] w-[30px] items-center justify-center rounded-full', {
-        'bg-primary-700': variant === 'full',
-        'border border-primary-700': variant === 'outline',
+        'text-white bg-primary-700 hover:bg-primary-600': variant === 'full',
+        'border border-primary-700 text-primary-700 hover:border-primary-600 hover:text-primary-600':
+          variant === 'outline',
       }),
     [variant]
   )
