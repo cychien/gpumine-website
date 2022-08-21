@@ -8,6 +8,7 @@ import {
   ScrollRestoration,
 } from '@remix-run/react'
 
+import { PRELOAD_ASSETS } from './constants/preload-assets'
 import styles from './styles/app.css'
 
 export const meta: MetaFunction = () => ({
@@ -16,7 +17,10 @@ export const meta: MetaFunction = () => ({
   viewport: 'width=device-width,initial-scale=1',
 })
 
-export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }]
+export const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: styles },
+  ...PRELOAD_ASSETS.map(({ href, as }) => ({ rel: 'preload', href, as })),
+]
 
 export default function App() {
   return (
