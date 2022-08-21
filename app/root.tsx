@@ -19,6 +19,16 @@ export const meta: MetaFunction = () => ({
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: styles },
+  { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+  {
+    rel: 'preconnect',
+    crossOrigin: 'anonymous',
+    href: 'https://fonts.gstatic.com',
+  },
+  {
+    rel: 'stylesheet',
+    href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap',
+  },
   ...PRELOAD_ASSETS.map(({ href, as }) => ({ rel: 'preload', href, as })),
 ]
 
