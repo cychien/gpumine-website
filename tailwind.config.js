@@ -23,9 +23,7 @@ module.exports = {
         700: '#2A2D9E',
         800: '#1D2080',
       },
-      lightBlue: {
-        100: '#DAE2F9',
-      },
+      lightGray: '#8E95AA',
     },
     extend: {},
   },
