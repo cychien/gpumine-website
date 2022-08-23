@@ -22,7 +22,22 @@ function SearchAddressModal({ isOpen, onClose }: SearchAddressModalProps) {
               {t('common.wallet-address')}
             </Dialog.Title>
 
-            <div className="mt-5">input</div>
+            <div className="mt-5 self-stretch">
+              <div className="flex h-[40px] min-h-[40px] items-center rounded-lg border-2 border-primary-200 pl-1">
+                <div className="flex items-center border-r-2 border-primary-300 pl-1 pr-3 text-primary-400">
+                  <svg className="h-[28px] w-[28px]">
+                    <use href={`${commonIcons}#eth`} />
+                  </svg>
+                  <span className="font-medium">ETH</span>
+                </div>
+                <div className="flex-1 px-2">
+                  <input
+                    type="text"
+                    className="w-full text-sm text-darkGray shadow-none outline-none"
+                  />
+                </div>
+              </div>
+            </div>
 
             <div className="mt-6">
               <button

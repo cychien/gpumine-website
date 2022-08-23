@@ -52,5 +52,12 @@
         d="M20 1H6C3.23858 1 1 3.23858 1 6V20C1 22.7614 3.23858 25 6 25H20C22.7614 25 25 22.7614 25 20V6C25 3.23858 22.7614 1 20 1Z"
         stroke="currentColor" stroke-miterlimit="10" />
     </symbol>
+    <symbol id='eth' viewBox='0 0 25 25' fill='currentColor'>
+      <g transform="translate(7.001 4)">
+        <path d="M448.636,509.484l5.275,7.432,5-7.635-5.078,3.336Z" transform="translate(-448.612 -499.916)" />
+        <path d="M458.854,493.746l-5.3-8.31-4.975,8.5,5.2,2.854Z" transform="translate(-448.58 -485.436)" />
+      </g>
+      <path d="M0,0H25V25H0V0Z" fill='none' />
+    </symbol>
   </defs>
 </svg>
