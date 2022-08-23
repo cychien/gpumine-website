@@ -24,7 +24,7 @@ That will reduce the final css bundle size.
   }
 
   body {
-    @apply leading-normal antialiased;
+    @apply leading-normal antialiased min-h-full;
   }
 
   img,

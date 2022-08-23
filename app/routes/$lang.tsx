@@ -60,10 +60,12 @@ export default function Layout() {
   }, [i18n, language])
 
   return (
-    <div>
+    <div className="flex min-h-full flex-col">
       <Header />
       <Outlet />
-      <Footer />
+      <div className="mt-auto">
+        <Footer />
+      </div>
     </div>
   )
 }
