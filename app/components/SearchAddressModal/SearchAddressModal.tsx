@@ -33,7 +33,7 @@ function SearchAddressModal({ isOpen, onClose }: SearchAddressModalProps) {
                 <div className="flex-1 px-2">
                   <input
                     type="text"
-                    className="w-full text-sm text-darkGray shadow-none outline-none"
+                    className="w-full text-darkGray shadow-none outline-none"
                   />
                 </div>
               </div>
