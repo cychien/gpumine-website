@@ -20,9 +20,9 @@ function Dropdown({ value, onChange, options, children }: DropdownProps) {
               key={value}
               className={({ active }) =>
                 cx(
-                  'cursor-pointer bg-white py-2 text-center text-sm text-primary-700 hover:bg-lightBlue-100',
+                  'cursor-pointer bg-white py-2 text-center text-sm text-primary-700 hover:bg-primary-100',
                   {
-                    'bg-lightBlue-100': active,
+                    'bg-primary-100': active,
                   }
                 )
               }
