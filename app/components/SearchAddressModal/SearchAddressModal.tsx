@@ -1,18 +1,37 @@
 import { Dialog } from '@headlessui/react'
+import { useNavigate } from '@remix-run/react'
+import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import commonIcons from '~/assets/icons/common.svg'
+import withLang from '~/utils/i18n/withLang'
 
 type SearchAddressModalProps = {
   isOpen: boolean
   onClose: () => void
 }
 
-function SearchAddressModal({ isOpen, onClose }: SearchAddressModalProps) {
-  const { t } = useTranslation()
+function SearchAddressModal({
+  isOpen,
+  onClose: propOnClose,
+}: SearchAddressModalProps) {
+  const [address, setAddress] = useState<string>('')
+  const navigate = useNavigate()
+  const { t, i18n } = useTranslation()
+
+  const handleClose = useCallback(() => {
+    propOnClose()
+    setAddress('')
+  }, [propOnClose])
+
+  const handlesSearchButtonClick = useCallback(() => {
+    propOnClose()
+    setAddress('')
+    navigate(withLang(`/workers/${address}`, i18n.language))
+  }, [address, i18n.language, navigate, propOnClose])
 
   return (
-    <Dialog as="div" open={isOpen} onClose={onClose}>
+    <Dialog as="div" open={isOpen} onClose={handleClose}>
       <div className="fixed inset-0 bg-black bg-opacity-25" />
 
       <div className="fixed inset-0 overflow-y-auto">
@@ -34,6 +53,10 @@ function SearchAddressModal({ isOpen, onClose }: SearchAddressModalProps) {
                   <input
                     type="text"
                     className="w-full text-darkGray shadow-none outline-none"
+                    value={address}
+                    onChange={(e) => {
+                      setAddress(e.target.value)
+                    }}
                   />
                 </div>
               </div>
@@ -43,7 +66,7 @@ function SearchAddressModal({ isOpen, onClose }: SearchAddressModalProps) {
               <button
                 type="button"
                 className="flex h-[40px] min-h-[40px] w-[160px] items-center justify-center rounded-full bg-primary-500 font-bold text-white"
-                onClick={() => {}}
+                onClick={handlesSearchButtonClick}
               >
                 {t('common.search')}
               </button>
@@ -53,7 +76,7 @@ function SearchAddressModal({ isOpen, onClose }: SearchAddressModalProps) {
               type="button"
               aria-label="Close"
               className="absolute top-3 right-3 text-lightGray sm:top-4 sm:right-4"
-              onClick={onClose}
+              onClick={handleClose}
             >
               <svg className="h-[24px] w-[24px]">
                 <use href={`${commonIcons}#modal-close`} />
