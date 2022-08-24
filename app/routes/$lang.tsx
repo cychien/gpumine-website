@@ -6,6 +6,7 @@ import parser from 'accept-language-parser'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import Background from '~/components/Background'
 import Footer from '~/components/Footer'
 import Header from '~/components/Header'
 import { cacheUserLanguage, detectLanguageOnServer } from '~/utils/i18n'
@@ -61,11 +62,17 @@ export default function Layout() {
   }, [i18n, language])
 
   return (
-    <div className="flex min-h-full flex-col">
-      <Header />
-      <Outlet />
-      <div className="mt-auto">
-        <Footer />
+    <div className="relative h-full min-h-full">
+      <div className="absolute top-0 left-0 h-screen w-screen overflow-hidden">
+        <Background />
+      </div>
+
+      <div className="isolate z-10 flex min-h-full flex-col">
+        <Header />
+        <Outlet />
+        <div className="mt-auto">
+          <Footer />
+        </div>
       </div>
     </div>
   )

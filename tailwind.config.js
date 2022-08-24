@@ -6,6 +6,8 @@ module.exports = {
   theme: {
     screen: {
       sm: '640px',
+      lg: '1024px',
+      xl: '1280px',
     },
     fontFamily: {
       sans: ['Noto Sans TC', ...defaultTheme.fontFamily.sans],
