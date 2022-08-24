@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next'
 
 import Footer from '~/components/Footer'
 import Header from '~/components/Header'
-import { detectLanguageOnServer } from '~/utils/i18n'
+import { cacheUserLanguage, detectLanguageOnServer } from '~/utils/i18n'
 import { SUPPORTED_LANGUAGES } from '~/utils/i18n/constants'
 
 export const loader: LoaderFunction = ({ request, params }) => {
@@ -57,6 +57,7 @@ export default function Layout() {
 
   useEffect(() => {
     i18n.changeLanguage(language)
+    cacheUserLanguage(language)
   }, [i18n, language])
 
   return (

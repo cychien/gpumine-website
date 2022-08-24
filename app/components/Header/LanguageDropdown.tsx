@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import commonIcons from '~/assets/icons/common.svg'
 import { LANGUAGE_NAMES } from '~/constants/app'
 import type { SupportedLanguage } from '~/types/i18n'
+import { cacheUserLanguage } from '~/utils/i18n'
 
 import Dropdown from './Dropdown'
 
@@ -28,6 +29,7 @@ function LanguageDropdown() {
   const handleLanguageChange = useCallback(
     (language: SupportedLanguage) => {
       i18n.changeLanguage(language)
+      cacheUserLanguage(language)
       const pathnameWithoutLanguage = pathname.split('/').slice(2).join('/')
       const urlWithNewLanguage = `/${language}/${pathnameWithoutLanguage}`
       navigate(urlWithNewLanguage)

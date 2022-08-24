@@ -109,6 +109,6 @@ function setCookie(name: string, value: string) {
   document.cookie = name + '=' + (value || '') + '; path=/'
 }
 
-function cacheUserLanguage(language: string) {
+export function cacheUserLanguage(language: string) {
   setCookie('i18next', language)
 }
