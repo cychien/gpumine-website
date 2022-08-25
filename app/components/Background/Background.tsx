@@ -5,7 +5,7 @@ import bgTopRight from '~/assets/images/bg-top-right.svg'
 function Background() {
   return (
     <div className="relative h-full w-full select-none opacity-60">
-      <div className="absolute top-[-126px] right-[-142px]">
+      <div className="absolute top-[-126px] right-[-162px]">
         <img
           src={bgTopRight}
           alt=""
