@@ -1,6 +1,5 @@
 import type { LoaderFunction } from '@remix-run/node'
-import { json } from '@remix-run/node'
-import { useLoaderData } from '@remix-run/react'
+import { useParams } from '@remix-run/react'
 
 export const loader: LoaderFunction = ({ params }) => {
   if (!params.address) {
@@ -9,13 +8,11 @@ export const loader: LoaderFunction = ({ params }) => {
     })
   }
 
-  return json({
-    address: params.address,
-  })
+  return null
 }
 
 export default function Address() {
-  const { address } = useLoaderData()
+  const { address } = useParams()
 
   return <div>{address}</div>
 }
