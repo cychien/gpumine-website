@@ -30,7 +30,7 @@ export async function initI18nOnServer(request: Request) {
       loadPath: (lngs: string[]) => {
         const firstLanguage = lngs[0] as SupportedLanguage
         const translationFilePath = TRANSLATION_FILE_PATHS[firstLanguage]
-        return `${TRANSLATION_URL}/${translationFilePath}/translation.json`
+        return `${TRANSLATION_URL}/${translationFilePath}/content.json`
       },
     },
   }
