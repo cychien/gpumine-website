@@ -1,10 +1,13 @@
+import useCollapse from 'react-collapsed'
 import { useTranslation } from 'react-i18next'
 
 import commonIcons from '~/assets/icons/common.svg'
 
 export default function Stats() {
+  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse()
+
   return (
-    <div className="bg-surface rounded-2xl px-6 py-4 shadow-[0_4px_8px_0_rgba(189,206,252,0.2)] sm:py-6">
+    <div className="bg-surface rounded-2xl px-6 py-4 shadow-[0_4px_8px_0_rgba(189,206,252,0.2)]">
       <div className="flex items-center justify-between">
         <CurrencyType />
 
@@ -12,12 +15,18 @@ export default function Stats() {
           <StatsNumbers />
         </div>
 
-        <button type="button" className="p-2">
+        <button className="p-2" {...getToggleProps()}>
           <svg className="h-[10px] w-[20px] text-lightGray sm:h-[12px] sm:w-[24px]">
-            <use href={`${commonIcons}#arrow-down`} />
+            {isExpanded ? (
+              <use href={`${commonIcons}#arrow-up`} />
+            ) : (
+              <use href={`${commonIcons}#arrow-down`} />
+            )}
           </svg>
         </button>
       </div>
+
+      <div {...getCollapseProps()}>Collapsed content 🙈</div>
     </div>
   )
 }
