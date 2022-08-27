@@ -21,6 +21,10 @@
       <path d="M1.20001 0.800049L4.41837 4.00005L7.60001 0.800049" stroke="currentColor" stroke-linecap="round"
         stroke-linejoin="round" />
     </symbol>
+    <symbol id='arrow-up' viewBox="0 0 18 10" fill="none">
+      <path d="M16.5 8.75L9 1.25L1.5 8.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
     <symbol id='email' viewBox='0 0 20 20' fill='currentColor'>
       <g transform="translate(1 4)">
         <path d="M-845.776,1632.72l-9-7.8v10.556h18v-10.555Z" transform="translate(854.776 -1623.648)"></path>
