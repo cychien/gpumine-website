@@ -7,7 +7,7 @@ import { LANGUAGE_NAMES } from '~/constants/app'
 import type { SupportedLanguage } from '~/types/i18n'
 import { cacheUserLanguage } from '~/utils/i18n'
 
-import Dropdown from './Dropdown'
+import Dropdown from '../Dropdown'
 
 function LanguageDropdown() {
   const { i18n } = useTranslation()

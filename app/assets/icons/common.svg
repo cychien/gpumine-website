@@ -63,5 +63,14 @@
       </g>
       <path d="M0,0H25V25H0V0Z" fill='none' />
     </symbol>
-  </defs>
+    <symbol id='switch' viewBox="0 0 20 20" fill="none">
+      <path
+        d="M10 18.75C14.8325 18.75 18.75 14.8325 18.75 10C18.75 5.16751 14.8325 1.25 10 1.25C5.16751 1.25 1.25 5.16751 1.25 10C1.25 14.8325 5.16751 18.75 10 18.75Z"
+        stroke="currentColor" />
+      <path d="M5.99908 8.087H14.0801L12.0601 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <path d="M14.0801 11.3311H5.99908L8.01908 13.4181" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+        stroke-linejoin="round" />
+</svg>
+</defs>
 </svg>

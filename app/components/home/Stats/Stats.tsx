@@ -4,7 +4,7 @@ import commonIcons from '~/assets/icons/common.svg'
 
 export default function Stats() {
   return (
-    <div className="bg-surface w-full max-w-[782px] rounded-2xl px-6 py-4 shadow-[0_4px_8px_0_rgba(189,206,252,0.2)] sm:py-6">
+    <div className="bg-surface rounded-2xl px-6 py-4 shadow-[0_4px_8px_0_rgba(189,206,252,0.2)] sm:py-6">
       <div className="flex items-center justify-between">
         <CurrencyType />
 

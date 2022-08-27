@@ -1,12 +1,11 @@
 import { useCallback, useMemo } from 'react'
 
 import commonIcons from '~/assets/icons/common.svg'
+import Dropdown from '~/components/Dropdown'
 import type { CurrencyType } from '~/types/currency'
 import { useCurrency } from '~/utils/currency/CurrencyProvider'
 
-import Dropdown from '../Dropdown'
-
-function CurrencyDropdown() {
+export default function CurrencyDropdown() {
   const { currency, setCurrency } = useCurrency()
 
   const options = useMemo(
@@ -28,19 +27,23 @@ function CurrencyDropdown() {
   )
 
   return (
-    <Dropdown value={currency} onChange={handleChange} options={options}>
+    <Dropdown
+      value={currency}
+      onChange={handleChange}
+      options={options}
+      optionsClassName="!border-primary-400"
+      optionClassName="!text-primary-500"
+    >
       <button
         type="button"
         aria-label="Switch currency"
-        className="flex items-center space-x-1 px-1 text-primary-700"
+        className="flex items-center space-x-2 rounded-lg border border-primary-400 bg-white/60 px-3 py-[6px] text-primary-500"
       >
         <span className="text-sm">{currency}</span>
-        <svg className="h-[6px] w-[12px] text-primary-700">
-          <use href={`${commonIcons}#arrow-down`} />
+        <svg className="h-[20px] min-h-[20px] w-[20px] min-w-[20px]">
+          <use href={`${commonIcons}#switch`} />
         </svg>
       </button>
     </Dropdown>
   )
 }
-
-export default CurrencyDropdown
