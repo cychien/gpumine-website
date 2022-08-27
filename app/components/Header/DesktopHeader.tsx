@@ -59,7 +59,7 @@ type LinkButtonProps = {
 
 function LinkButton({ to, children, isExternalLink }: LinkButtonProps) {
   const LinkButtonStyle =
-    'block h-[26px] w-[64px] pb-1 text-center text-sm leading-none text-primary-600'
+    'block h-[26px] px-3 pb-1 text-center text-sm leading-none text-primary-600'
 
   if (isExternalLink) {
     return (

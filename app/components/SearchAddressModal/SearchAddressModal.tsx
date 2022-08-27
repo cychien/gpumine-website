@@ -65,7 +65,7 @@ function SearchAddressModal({
             <div className="mt-6">
               <button
                 type="button"
-                className="flex h-[40px] min-h-[40px] w-[160px] items-center justify-center rounded-full bg-primary-500 font-bold text-white"
+                className="flex h-[40px] min-h-[40px] min-w-[160px] items-center justify-center rounded-full bg-primary-500 px-4 font-bold text-white"
                 onClick={handlesSearchButtonClick}
               >
                 {t('common.search')}
