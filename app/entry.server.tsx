@@ -5,6 +5,8 @@ import { renderToPipeableStream } from 'react-dom/server'
 import { I18nextProvider } from 'react-i18next'
 import { PassThrough } from 'stream'
 
+import { CurrencyProvider } from './utils/currency/CurrencyProvider'
+import { detectCurrencyOnServer } from './utils/currency/detectCurrencyOnServer'
 import { initI18nOnServer } from './utils/i18n'
 
 const ABORT_DELAY = 5000
@@ -16,6 +18,7 @@ export default async function handleRequest(
   remixContext: EntryContext
 ) {
   const i18nInstance = await initI18nOnServer(request)
+  const currency = detectCurrencyOnServer(request)
 
   return new Promise((resolve, reject) => {
     let didError = false
@@ -28,7 +31,9 @@ export default async function handleRequest(
        * use i18n instance in memory which might have been overwritten by other requests.
        */
       <I18nextProvider i18n={i18nInstance}>
-        <RemixServer context={remixContext} url={request.url} />
+        <CurrencyProvider currency={currency}>
+          <RemixServer context={remixContext} url={request.url} />
+        </CurrencyProvider>
       </I18nextProvider>,
       {
         onShellReady: () => {
