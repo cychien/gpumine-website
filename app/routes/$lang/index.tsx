@@ -15,7 +15,7 @@ export default function Index() {
   )
 
   return (
-    <div className="flex flex-col items-center px-3 py-4">
+    <div className="flex flex-col items-center px-3 pt-4 pb-8 sm:pb-16">
       {!!announcements?.demo && (
         <div className="w-full max-w-[964px]">
           <Announcement

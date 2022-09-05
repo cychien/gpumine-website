@@ -19,13 +19,17 @@
     "@remix-run/vercel": "^1.6.8",
     "@vercel/node": "^2.4.4",
     "accept-language-parser": "^1.5.0",
+    "bignumber.js": "^9.1.0",
     "classnames": "^2.3.1",
+    "date-fns": "^2.29.2",
     "i18next": "^21.9.1",
     "i18next-http-backend": "^1.4.1",
+    "lightweight-charts": "^3.8.0",
     "react": "^18.2.0",
     "react-collapsed": "^3.3.2",
     "react-dom": "^18.2.0",
-    "react-i18next": "^11.18.4"
+    "react-i18next": "^11.18.4",
+    "remix-utils": "^3.3.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.6.8",

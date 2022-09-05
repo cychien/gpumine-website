@@ -25,7 +25,7 @@ function Dropdown({
         <Listbox.Button as={Fragment}>{children}</Listbox.Button>
         <Listbox.Options
           className={cx(
-            'absolute mt-2 w-full overflow-hidden rounded-[8px] border border-primary-700',
+            'absolute z-10 mt-2 w-full overflow-hidden rounded-[8px] border border-primary-700',
             optionsClassName
           )}
         >
