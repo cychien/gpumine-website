@@ -34,7 +34,7 @@ export default function Stats() {
       <div {...getCollapseProps()}>
         <ClientOnly fallback={<div className="h-[300px]" />}>
           {() => (
-            <div className="pl-4 pr-0 pb-5 sm:pl-6 sm:pr-6">
+            <div className="pl-4 pr-0 pb-5 sm:pl-6 sm:pr-2">
               <ComputingPowerChart />
             </div>
           )}

@@ -3,33 +3,33 @@ import BigNumber from 'bignumber.js'
 const UNITS = [
   {
     label: '',
-    perUnit: new BigNumber(1),
-    highBound: new BigNumber(1024),
+    perUnit: 1,
+    highBound: 1e3,
   },
   {
     label: 'K',
-    perUnit: new BigNumber(1024),
-    highBound: new BigNumber(1024).exponentiatedBy(2),
+    perUnit: 1e3,
+    highBound: 1e6,
   },
   {
     label: 'M',
-    perUnit: new BigNumber(1024).exponentiatedBy(2),
-    highBound: new BigNumber(1024).exponentiatedBy(3),
+    perUnit: 1e6,
+    highBound: 1e9,
   },
   {
     label: 'G',
-    perUnit: new BigNumber(1024).exponentiatedBy(3),
-    highBound: new BigNumber(1024).exponentiatedBy(4),
+    perUnit: 1e9,
+    highBound: 1e12,
   },
   {
     label: 'T',
-    perUnit: new BigNumber(1024).exponentiatedBy(4),
-    highBound: new BigNumber(1024).exponentiatedBy(5),
+    perUnit: 1e12,
+    highBound: 1e15,
   },
   {
     label: 'P',
-    perUnit: new BigNumber(1024).exponentiatedBy(5),
-    highBound: new BigNumber(1024).exponentiatedBy(8),
+    perUnit: 1e15,
+    highBound: 1e21,
   },
 ]
 
