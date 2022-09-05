@@ -34,6 +34,10 @@ const UNITS = [
 ]
 
 export default function toReadableNumber(num: number) {
+  if (num < 0) {
+    return '-'
+  }
+
   const numInBigNumber = new BigNumber(num)
 
   for (let i = 0; i < UNITS.length; i++) {
