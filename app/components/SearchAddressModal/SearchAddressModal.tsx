@@ -27,7 +27,7 @@ function SearchAddressModal({
   const handlesSearchButtonClick = useCallback(() => {
     propOnClose()
     setAddress('')
-    navigate(withLang(`/workers/${address}`, i18n.language))
+    navigate(withLang(`/worker/${address}`, i18n.language))
   }, [address, i18n.language, navigate, propOnClose])
 
   return (

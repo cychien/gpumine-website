@@ -27,6 +27,7 @@ module.exports = {
       },
       lightGray: '#8E95AA',
       darkGray: '#3D3D3D',
+      green: '#07B9B9',
     },
     extend: {},
   },

@@ -27,7 +27,9 @@
     "lightweight-charts": "^3.8.0",
     "react": "^18.2.0",
     "react-collapsed": "^3.3.2",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.3.0",
     "react-i18next": "^11.18.4",
     "remix-utils": "^3.3.0"
   },
@@ -38,6 +40,7 @@
     "@types/accept-language-parser": "^1.5.3",
     "@types/i18next-fs-backend": "^1.1.2",
     "@types/react": "^18.0.15",
+    "@types/react-copy-to-clipboard": "^5.0.4",
     "@types/react-dom": "^18.0.6",
     "autoprefixer": "^10.4.8",
     "concurrently": "^7.3.0",
