@@ -1,10 +1,9 @@
 import { useTranslation } from 'react-i18next'
-import ReactTooltip from 'react-tooltip'
-import { ClientOnly } from 'remix-utils'
 
 import commonIcons from '~/assets/icons/common.svg'
 import machineHealthIcon from '~/assets/icons/stats/machine-health.svg'
 import StatsCard from '~/components/StatsCard'
+import Tooltip from '~/components/Tooltip'
 
 function MachineHealthCard() {
   const { t } = useTranslation()
@@ -28,20 +27,7 @@ function MachineHealthCard() {
           >
             <use href={`${commonIcons}#help`} />
           </svg>
-          <ClientOnly>
-            {() => (
-              <ReactTooltip
-                id="machine-health-value-description"
-                className="!max-w-[266px] !rounded-lg !bg-primary-100 !p-2 !text-darkGray"
-                border
-                borderColor="#96B2FF"
-                arrowColor="#DAE2F9"
-                place="right"
-                offset={{ right: 4 }}
-                effect="solid"
-              />
-            )}
-          </ClientOnly>
+          <Tooltip id="machine-health-value-description" />
         </div>
       </div>
       <div className="mt-5">

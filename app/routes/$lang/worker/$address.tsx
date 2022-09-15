@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import Title from '~/components/Title'
 import AddressCard from '~/components/worker/AddressCard'
+import BalanceCard from '~/components/worker/BalanceCard'
 import MachineHealthCard from '~/components/worker/MachineHealthCard'
 import MachineStatusCard from '~/components/worker/MachineStatusCard'
 
@@ -38,6 +39,9 @@ export default function Address() {
           </div>
           <div className="min-w-[206px]">
             <MachineStatusCard />
+          </div>
+          <div className="flex-1">
+            <BalanceCard />
           </div>
         </div>
       </section>
