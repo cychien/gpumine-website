@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import Title from '~/components/Title'
 import AddressCard from '~/components/worker/AddressCard'
 import MachineHealthCard from '~/components/worker/MachineHealthCard'
+import MachineStatusCard from '~/components/worker/MachineStatusCard'
 
 export const loader: LoaderFunction = ({ params }) => {
   if (!params.address) {
@@ -22,8 +23,8 @@ export default function Address() {
 
   return (
     <main className="mx-auto flex w-full max-w-[964px] flex-col px-3 pt-4 pb-8 sm:pb-16">
-      <section className="flex flex-col space-y-4 sm:space-y-5">
-        <div className="relative self-start sm:self-stretch">
+      <section className="flex flex-col space-y-3 lg:space-y-5">
+        <div className="relative mb-2 self-start sm:self-stretch lg:mb-0">
           <Title>{t('common.mining-status')}</Title>
         </div>
 
@@ -31,9 +32,12 @@ export default function Address() {
           <AddressCard address={address || ''} />
         </div>
 
-        <div className="flex">
+        <div className="flex flex-col space-y-3 lg:flex-row lg:space-x-5 lg:space-y-0">
           <div className="flex-1">
             <MachineHealthCard />
+          </div>
+          <div className="min-w-[206px]">
+            <MachineStatusCard />
           </div>
         </div>
       </section>
