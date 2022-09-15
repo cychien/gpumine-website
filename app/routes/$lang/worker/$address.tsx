@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import Title from '~/components/Title'
 import AddressCard from '~/components/worker/AddressCard'
 import BalanceCard from '~/components/worker/BalanceCard'
+import MachineComputingPowerCard from '~/components/worker/MachineComputingPowerCard'
 import MachineHealthCard from '~/components/worker/MachineHealthCard'
 import MachineStatusCard from '~/components/worker/MachineStatusCard'
 import PaidBalanceCard from '~/components/worker/PaidBalanceCard'
@@ -45,6 +46,10 @@ export default function Address() {
             <BalanceCard />
             <PaidBalanceCard />
           </div>
+        </div>
+
+        <div>
+          <MachineComputingPowerCard />
         </div>
       </section>
     </main>

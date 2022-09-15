@@ -1,4 +1,4 @@
-import format from 'date-fns/format'
+import { format } from 'date-fns'
 import type { UTCTimestamp } from 'lightweight-charts'
 import { createChart } from 'lightweight-charts'
 import { useEffect, useRef } from 'react'
@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 import computingPowerRaw from '~/mocks/computing-power'
 import toReadableNumber from '~/utils/calculation/toReadableNumber'
 
-export default function ComputingPowerChart() {
+function MachinceComputingPowerChart() {
   const chartContainerRef = useRef<HTMLDivElement>(null)
   const { t } = useTranslation()
 
@@ -31,7 +31,7 @@ export default function ComputingPowerChart() {
       },
       rightPriceScale: {
         scaleMargins: {
-          top: 0.1,
+          top: 0.3,
           bottom: 0.3,
         },
         borderColor: '#96B2FF',
@@ -46,7 +46,7 @@ export default function ComputingPowerChart() {
           color: '#C7D5FB',
         },
         vertLines: {
-          color: 'transparent',
+          color: '#C7D5FB',
         },
       },
       crosshair: {
@@ -61,11 +61,9 @@ export default function ComputingPowerChart() {
       },
     })
 
-    const newSeries = chart.addAreaSeries({
-      topColor: '#618AF9',
-      bottomColor: 'rgba(43, 98, 246, 0.1)',
-      lineColor: '#618AF9',
-      lineWidth: 1,
+    const newSeries = chart.addLineSeries({
+      color: '#FA7F26',
+      lineWidth: 2,
     })
     const computingPowerData = computingPowerRaw
       .sort((a, b) => a.ts - b.ts)
@@ -90,16 +88,18 @@ export default function ComputingPowerChart() {
   }, [])
 
   return (
-    <div ref={chartContainerRef} className="relative isolate h-[280px]">
+    <div ref={chartContainerRef} className="relative isolate h-[253px]">
       <div className="absolute z-10 hidden items-baseline space-x-3 sm:flex">
         <div className="font-bold text-darkGray">
-          {t('common.pool-computing-power')}
+          {t('common.machine-computing-power-chart')}
         </div>
         <div className="align-middle text-sm font-medium text-darkGray">
           {t('common.average-computing-power')}=
-          <span className="text-primary-500">1480</span>
+          <span className="text-orange">1580</span>
         </div>
       </div>
     </div>
   )
 }
+
+export default MachinceComputingPowerChart
