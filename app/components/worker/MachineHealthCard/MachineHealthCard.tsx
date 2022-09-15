@@ -10,7 +10,7 @@ function MachineHealthCard() {
 
   return (
     <StatsCard>
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center space-x-2">
         <img
           src={machineHealthIcon}
           alt="Machine health icon"
