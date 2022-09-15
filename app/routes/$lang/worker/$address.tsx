@@ -26,7 +26,7 @@ export default function Address() {
 
   return (
     <main className="mx-auto flex w-full max-w-[964px] flex-col px-3 pt-4 pb-8 sm:pb-16">
-      <section className="flex flex-col space-y-3 lg:space-y-5">
+      <section className="mt-5 flex flex-col space-y-3 sm:mt-7 lg:space-y-5">
         <div className="relative mb-2 self-start sm:self-stretch lg:mb-0">
           <Title>{t('common.mining-status')}</Title>
         </div>
