@@ -7,6 +7,7 @@ import AddressCard from '~/components/worker/AddressCard'
 import BalanceCard from '~/components/worker/BalanceCard'
 import MachineHealthCard from '~/components/worker/MachineHealthCard'
 import MachineStatusCard from '~/components/worker/MachineStatusCard'
+import PaidBalanceCard from '~/components/worker/PaidBalanceCard'
 
 export const loader: LoaderFunction = ({ params }) => {
   if (!params.address) {
@@ -40,8 +41,9 @@ export default function Address() {
           <div className="min-w-[206px]">
             <MachineStatusCard />
           </div>
-          <div className="flex-1">
+          <div className="flex flex-1 flex-col space-y-3 lg:space-y-4">
             <BalanceCard />
+            <PaidBalanceCard />
           </div>
         </div>
       </section>
