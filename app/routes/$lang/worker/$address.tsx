@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import Title from '~/components/Title'
 import AddressCard from '~/components/worker/AddressCard'
 import BalanceCard from '~/components/worker/BalanceCard'
+import HistoryRevenueReport from '~/components/worker/HistoryRevenueReport'
 import MachineComputingPowerCard from '~/components/worker/MachineComputingPowerCard'
 import MachineHealthCard from '~/components/worker/MachineHealthCard'
 import MachineStatusCard from '~/components/worker/MachineStatusCard'
@@ -54,6 +55,7 @@ export default function Address() {
         </div>
       </section>
       <WorkerListReport />
+      <HistoryRevenueReport />
     </main>
   )
 }

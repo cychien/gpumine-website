@@ -16,8 +16,6 @@ import Pagination from './Pagination'
 import type { WorkerStatus } from './type'
 
 function WorkerListReport() {
-  const { t } = useTranslation()
-
   return (
     <WorkerListReportContextProvider>
       <section className="flex flex-col space-y-5">
