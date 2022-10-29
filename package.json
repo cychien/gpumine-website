@@ -24,6 +24,7 @@
     "date-fns": "^2.29.2",
     "i18next": "^21.9.1",
     "i18next-http-backend": "^1.4.1",
+    "immer": "^9.0.16",
     "lightweight-charts": "^3.8.0",
     "react": "^18.2.0",
     "react-collapsed": "^3.3.2",

@@ -8,7 +8,6 @@ export const COMMON_OPTIONS: InitOptions = {
   supportedLngs: SUPPORTED_LANGUAGES,
   // React already safes from xss
   interpolation: { escapeValue: false },
-  // TODO: use suspense
   react: { useSuspense: false },
 }
 

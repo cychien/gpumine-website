@@ -9,6 +9,7 @@ import MachineComputingPowerCard from '~/components/worker/MachineComputingPower
 import MachineHealthCard from '~/components/worker/MachineHealthCard'
 import MachineStatusCard from '~/components/worker/MachineStatusCard'
 import PaidBalanceCard from '~/components/worker/PaidBalanceCard'
+import WorkerListReport from '~/components/worker/WorkerListReport'
 
 export const loader: LoaderFunction = ({ params }) => {
   if (!params.address) {
@@ -25,7 +26,7 @@ export default function Address() {
   const { t } = useTranslation()
 
   return (
-    <main className="mx-auto flex w-full max-w-[964px] flex-col px-3 pt-4 pb-8 sm:pb-16">
+    <main className="mx-auto flex w-full max-w-[964px] flex-col space-y-16 px-3 pt-4 pb-8 sm:pb-16">
       <section className="mt-5 flex flex-col space-y-3 sm:mt-7 lg:space-y-5">
         <div className="relative mb-2 self-start sm:self-stretch lg:mb-0">
           <Title>{t('common.mining-status')}</Title>
@@ -52,6 +53,7 @@ export default function Address() {
           <MachineComputingPowerCard />
         </div>
       </section>
+      <WorkerListReport />
     </main>
   )
 }

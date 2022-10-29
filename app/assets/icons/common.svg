@@ -25,6 +25,14 @@
       <path d="M16.5 8.75L9 1.25L1.5 8.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"
         stroke-linejoin="round" />
     </symbol>
+    <symbol id='arrow-left' viewBox="0 0 7 11" fill="none">
+      <path d="M5.5 1.50003L1.5 5.52298L5.5 9.50003" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
+    <symbol id='arrow-right' viewBox="0 0 7 11" fill="none">
+      <path d="M1.5 9.49995L5.5 5.47701L1.5 1.49995" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </symbol>
     <symbol id='email' viewBox='0 0 20 20' fill='currentColor'>
       <g transform="translate(1 4)">
         <path d="M-845.776,1632.72l-9-7.8v10.556h18v-10.555Z" transform="translate(854.776 -1623.648)"></path>
@@ -77,6 +85,10 @@
       <path
         d="M9.29411 12.348H10.2661C10.0381 10.464 12.2101 9.76796 12.2101 8.00396C12.2101 6.68396 11.3221 5.85596 9.95411 5.85596C8.98211 5.85596 8.22611 6.33596 7.66211 6.95996L8.28611 7.53596C8.70611 7.05596 9.24611 6.76796 9.84611 6.76796C10.6981 6.76796 11.1421 7.35596 11.1421 8.07596C11.1421 9.49196 9.00611 10.26 9.29411 12.348ZM9.81011 15.168C10.2421 15.168 10.6021 14.82 10.6021 14.328C10.6021 13.824 10.2421 13.488 9.81011 13.488C9.36611 13.488 9.01811 13.824 9.01811 14.328C9.01811 14.82 9.36611 15.168 9.81011 15.168Z"
         fill="currentColor" />
+    </symbol>
+    <symbol id='sort' viewBox="0 0 16 16" fill="none">
+      <path d="M4 6L8 2L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      <path d="M12 10L8 14L4 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
     </symbol>
   </defs>
 </svg>
