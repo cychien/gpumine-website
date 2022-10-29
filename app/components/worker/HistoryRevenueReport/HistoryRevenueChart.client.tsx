@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next'
 
 function HistoryRevenueChart() {
   const chartContainerRef = React.useRef<HTMLDivElement>(null)
-  const { t } = useTranslation()
 
   React.useEffect(() => {
     if (!chartContainerRef.current) return
@@ -403,10 +402,43 @@ function HistoryRevenueChart() {
 
   return (
     <div ref={chartContainerRef} className="relative isolate h-[253px]">
-      <div className="absolute z-10 hidden items-baseline space-x-3 sm:flex">
-        <div className="font-bold text-darkGray">
-          {t('common.24h-history-revenue')}
-        </div>
+      <div className="hidden sm:block">
+        <DesktopSummary />
+      </div>
+      <div className="sm:hidden">
+        <MobileSummary />
+      </div>
+    </div>
+  )
+}
+
+function DesktopSummary() {
+  const { t } = useTranslation()
+
+  return (
+    <div className="absolute z-10 flex items-baseline space-x-3">
+      <div className="font-bold text-darkGray">
+        {t('common.24h-history-revenue')}
+      </div>
+      <div className="align-middle text-sm font-medium text-darkGray">
+        {t('common.revenue')}=<span className="text-primary-500">0.36231</span>
+      </div>
+      <div className="align-middle text-sm font-medium text-darkGray">
+        {t('common.average-value')}=<span className="text-green">0.35324</span>
+      </div>
+    </div>
+  )
+}
+
+function MobileSummary() {
+  const { t } = useTranslation()
+
+  return (
+    <div className="absolute z-10 bg-white/10">
+      <div className="font-bold text-darkGray">
+        {t('common.24h-history-revenue')}
+      </div>
+      <div className="mt-1">
         <div className="align-middle text-sm font-medium text-darkGray">
           {t('common.revenue')}=
           <span className="text-primary-500">0.36231</span>
