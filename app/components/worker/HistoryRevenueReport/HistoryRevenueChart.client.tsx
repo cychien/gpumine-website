@@ -48,16 +48,16 @@ function HistoryRevenueChart() {
           color: '#C7D5FB',
         },
       },
-      // crosshair: {
-      //   vertLine: {
-      //     color: '#1D2080',
-      //     labelBackgroundColor: '#96B2FF',
-      //   },
-      //   horzLine: {
-      //     color: '#1D2080',
-      //     labelBackgroundColor: '#3243DA',
-      //   },
-      // },
+      crosshair: {
+        vertLine: {
+          color: '#1D2080',
+          labelBackgroundColor: '#96B2FF',
+        },
+        horzLine: {
+          color: '#1D2080',
+          labelBackgroundColor: '#3243DA',
+        },
+      },
     })
 
     const newSeries = chart.addLineSeries({
@@ -71,7 +71,7 @@ function HistoryRevenueChart() {
       },
       priceScaleId: '',
       scaleMargins: {
-        top: 0.8,
+        top: 0.4,
         bottom: 0,
       },
     })
