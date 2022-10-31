@@ -3,6 +3,7 @@ import { useParams } from '@remix-run/react'
 import { useTranslation } from 'react-i18next'
 
 import Title from '~/components/Title'
+import AccountingReport from '~/components/worker/AccountingReport'
 import AddressCard from '~/components/worker/AddressCard'
 import BalanceCard from '~/components/worker/BalanceCard'
 import HistoryRevenueReport from '~/components/worker/HistoryRevenueReport'
@@ -56,6 +57,7 @@ export default function Address() {
       </section>
       <WorkerListReport />
       <HistoryRevenueReport />
+      <AccountingReport />
     </main>
   )
 }
