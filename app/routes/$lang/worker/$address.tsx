@@ -2,6 +2,7 @@ import type { LoaderFunction } from '@remix-run/node'
 import { useParams } from '@remix-run/react'
 import { useTranslation } from 'react-i18next'
 
+import EstimatedIncomeReport from '~/components/miner/EstimatedIncomeReport'
 import WithdrawReport from '~/components/miner/WithdrawReport'
 import Title from '~/components/Title'
 import AccountingReport from '~/components/worker/AccountingReport'
@@ -60,6 +61,9 @@ export default function Address() {
       <HistoryRevenueReport />
       <AccountingReport />
       <WithdrawReport />
+      <div className="hidden sm:block">
+        <EstimatedIncomeReport />
+      </div>
     </main>
   )
 }
