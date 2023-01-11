@@ -2,6 +2,7 @@ import type { LoaderFunction } from '@remix-run/node'
 import { useParams } from '@remix-run/react'
 import { useTranslation } from 'react-i18next'
 
+import WithdrawReport from '~/components/miner/WithdrawReport'
 import Title from '~/components/Title'
 import AccountingReport from '~/components/worker/AccountingReport'
 import AddressCard from '~/components/worker/AddressCard'
@@ -58,6 +59,7 @@ export default function Address() {
       <WorkerListReport />
       <HistoryRevenueReport />
       <AccountingReport />
+      <WithdrawReport />
     </main>
   )
 }
