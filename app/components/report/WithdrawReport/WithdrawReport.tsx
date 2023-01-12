@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { ClientOnly } from 'remix-utils'
 
 import commonIcons from '~/assets/icons/common.svg'
-import { Report, ReportContent, ReportTitle } from '~/components/Report'
+import { Report, ReportContent, ReportTitle } from '~/components/report/Report'
 
 import WithdrawChart from './WithdrawChart.client'
 

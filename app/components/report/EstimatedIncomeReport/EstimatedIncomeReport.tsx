@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import commonIcons from '~/assets/icons/common.svg'
 import reportIcons from '~/assets/icons/report-sprite.svg'
 import logoUrl from '~/assets/images/logo.svg'
-import { Report, ReportContent } from '~/components/Report'
+import { Report, ReportContent } from '~/components/report/Report'
 
 function EstimatedIncomeReport() {
   const { t } = useTranslation()
@@ -36,7 +36,7 @@ function EstimatedIncomeReport() {
         </div>
 
         <div className="mt-5">
-          <div className="flex gap-5 px-10">
+          <div className="flex space-x-5 px-10">
             <div className="flex-1">
               <Board header={t('common.one-day')} eth={0.001234} usd={240.42} />
             </div>
